@@ -1,0 +1,15 @@
+FINAL PROJ OVERVIEW
+
+Create 3 arrays which contain lists of data
+	1. Fantasy Races
+	2. Fantasy Classes
+	3. Fantasy Names
+
+When program is run, automatically return a mixed message that says "You should play as a {RACE} {CLASS} whose name is {NAME}."
+
+Possible additions 
+	-an additional function which turns the returned data into an object with the returned data as properties
+	-an additional function which adds certain methods to the object like
+		-.introduce which would print a message that says the name
+		-.changename which would give a new name
+		-.changerace which would give a new race and name
