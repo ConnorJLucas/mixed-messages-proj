@@ -9,6 +9,13 @@ const femaleElfNames = ["Alea", "Azariah", "Bellas", "Bonna", "Chandrelle", "Cir
 
 const orcNames = ["Azuk", "Bashag", "Brag", "Bugdul", "Dalthu", "Duma", "Ergoth", "Garekk", "Ghorlorz", "Gnabadug", "Gruul", "Gularzob", "Ikgnath", "Karrhig", "Khadba", "Kukgilug", "Lorbumol", "Mash", "Nofhug", "Nulgha", "Onubub", "Opilge", "Pughilug", "Rakgu", "Rebub", "Salthu", "Sugha", "Targigoth", "Urag", "Vagan", "Varbu", "Vegum", "Vetorkag", "Vitgut", "Wanug", "Wanug", "Yughragh", "Zurbag", "Zurgha", "Zurpigig"]
 
+const pickAdj = () => {
+    const adj = ["skillful", "efficacious", "well-groomed", "ignorant", "disturbed", "electric", "seemly", "changeable", "possible", "strange", "fearless", "beautiful", "well-spoken", "productive", "cautious", "jumpy", "goofy", "famous", "acceptable", "unkempt", "black-and-white", "decent", "sneaky", "wide-eyed", "severe", "medical", "faint", "knowing", "military", "ruthless", "salty", "cowardly", "comprehensive", "guilty", "equal", "encouraging", "dry", "high-pitched", "mighty", "heroic"]
+    const adjNum = Math.floor(Math.random() * 40)
+    const getAdj = adj[adjNum]
+    return getAdj
+}
+
 const pickRace = () => {
     const fantasyRaces = ["Human", "Dwarf",  "Elf", "Orc"]
     const raceNum = Math.floor(Math.random() * 4)
@@ -103,5 +110,7 @@ const generateChar = char => {
 const charTraits = generateCharTraits();
 const char = pickCharName(charTraits);
 const newChar = generateChar(char);
+
+const welcomeMessage = `Your new character is 
 
 console.log(newChar)
