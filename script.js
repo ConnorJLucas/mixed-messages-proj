@@ -10,7 +10,7 @@ const femaleElfNames = ["Alea", "Azariah", "Bellas", "Bonna", "Chandrelle", "Cir
 const orcNames = ["Azuk", "Bashag", "Brag", "Bugdul", "Dalthu", "Duma", "Ergoth", "Garekk", "Ghorlorz", "Gnabadug", "Gruul", "Gularzob", "Ikgnath", "Karrhig", "Khadba", "Kukgilug", "Lorbumol", "Mash", "Nofhug", "Nulgha", "Onubub", "Opilge", "Pughilug", "Rakgu", "Rebub", "Salthu", "Sugha", "Targigoth", "Urag", "Vagan", "Varbu", "Vegum", "Vetorkag", "Vitgut", "Wanug", "Wanug", "Yughragh", "Zurbag", "Zurgha", "Zurpigig"]
 
 const pickAdj = () => {
-    const adj = ["skillful", "efficacious", "well-groomed", "ignorant", "disturbed", "electric", "seemly", "changeable", "possible", "strange", "fearless", "beautiful", "well-spoken", "productive", "cautious", "jumpy", "goofy", "famous", "acceptable", "unkempt", "black-and-white", "decent", "sneaky", "wide-eyed", "severe", "medical", "faint", "knowing", "military", "ruthless", "salty", "cowardly", "comprehensive", "guilty", "equal", "encouraging", "dry", "high-pitched", "mighty", "heroic"]
+    const adj = ["skillful", "efficacious", "well-groomed", "ignorant", "disturbed", "electric", "just", "changeable", "incorrigible", "strange", "fearless", "beautiful", "well-spoken", "productive", "cautious", "jumpy", "goofy", "famous", "violent", "unkempt", "black-and-white", "decent", "sneaky", "wide-eyed", "severe", "medical", "faint", "knowing", "military", "ruthless", "salty", "cowardly", "comprehensive", "guilty", "equal", "encouraging", "dry", "high-pitched", "mighty", "heroic"]
     const adjNum = Math.floor(Math.random() * 40)
     const getAdj = adj[adjNum]
     return getAdj
@@ -24,7 +24,7 @@ const pickRace = () => {
 }
 
 const pickGender = () => {
-    const gender = ["male", "female"]
+    const gender = ["Male", "Female"]
     const genderNum = Math.floor(Math.random() * 2)
     const getGender = gender[genderNum]
     return getGender
@@ -47,23 +47,23 @@ const pickName = (gender, race) => {
     }
     switch (race) {
         case 'Human':
-            if (gender === 'male') {
+            if (gender === 'Male') {
                 nameArray = maleHumanNames
-            } else if (gender === 'female') {
+            } else if (gender === 'Female') {
                 nameArray = femaleHumanNames
             }; break;
 
         case 'Dwarf':
-            if (gender === 'male') {
+            if (gender === 'Male') {
                 nameArray = maleDwarfNames
-            } else if (gender === 'female') {
+            } else if (gender === 'Female') {
                 nameArray = femaleDwarfNames
             }; break;
         
         case 'Elf':
-            if (gender === 'male') {
+            if (gender === 'Male') {
                 nameArray = maleElfNames
-            } else if (gender === 'female') {
+            } else if (gender === 'Female') {
                 nameArray = femaleElfNames
             }; break;
 
@@ -110,7 +110,8 @@ const generateChar = char => {
 const charTraits = generateCharTraits();
 const char = pickCharName(charTraits);
 const newChar = generateChar(char);
+const newAdj = pickAdj();
 
-const welcomeMessage = `Your new character is 
+const message = `Your new character is a ${newChar.gender} ${newChar.race} ${newChar.class} who is described by others as ${newAdj}. Thanks for using Connor's Character Generator!`
 
-console.log(newChar)
+console.log(message)
