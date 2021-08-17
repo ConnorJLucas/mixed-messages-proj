@@ -31,11 +31,77 @@ const pickClass = () => {
 }
 
 const pickName = (gender, race) => {
-    switch 
+    let nameArray = []
+    if (!gender) {
+        gender = pickGender();
+    };
+    if (!race) {
+        race = pickRace();
+    }
+    switch (race) {
+        case 'Human':
+            if (gender === 'male') {
+                nameArray = maleHumanNames
+            } else if (gender === 'female') {
+                nameArray = femaleHumanNames
+            }; break;
+
+        case 'Dwarf':
+            if (gender === 'male') {
+                nameArray = maleDwarfNames
+            } else if (gender === 'female') {
+                nameArray = femaleDwarfNames
+            }; break;
+        
+        case 'Elf':
+            if (gender === 'male') {
+                nameArray = maleElfNames
+            } else if (gender === 'female') {
+                nameArray = femaleElfNames
+            }; break;
+
+        case 'Orc':
+           nameArray = orcNames
+           break;
+        
+        default:
+            console.log('NAME ARRAY ERROR')
+
+    } 
+    const randNum = Math.floor(Math.random() * 40)
+    const newName = nameArray[randNum]
+    return newName;  
+} 
+
+
+const generateCharTraits = () => {
+    const newGender = pickGender();
+    const newRace = pickRace();
+    const newClass = pickClass();
+    
+    const newCharTraits = [newGender, newRace, newClass]
+    return newCharTraits
 }
 
-const generateChar = () => {
-    pickRace();
-    pickGender();
-    pickClass();
+const pickCharName = charTraits => {
+    const charName = pickName(charTraits[0], charTraits[1]);
+    charTraits.push(charName)
+    return charTraits
 }
+
+const generateChar = char => {
+    newCharObj = {
+        name: char[3],
+        gender: char[0],
+        race: char[1],
+        class: char[2]
+    }
+    return newCharObj
+}
+
+
+const charTraits = generateCharTraits();
+const char = pickCharName(charTraits);
+const newChar = generateChar(char);
+
+console.log(newChar)
