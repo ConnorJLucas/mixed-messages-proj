@@ -112,6 +112,6 @@ const char = pickCharName(charTraits);
 const newChar = generateChar(char);
 const newAdj = pickAdj();
 
-const message = `Your new character is a ${newChar.gender} ${newChar.race} ${newChar.class} who is described by others as ${newAdj}. Thanks for using Connor's Character Generator!`
+const message = `Your new character is a ${newChar.gender} ${newChar.race} ${newChar.class} named ${newChar.name} who is described by others as ${newAdj}. Thanks for using Connor's Character Generator!`
 
 console.log(message)
